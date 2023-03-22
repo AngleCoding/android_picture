@@ -9,7 +9,7 @@
 
 ```
 
-<h3>项目</h3>
+<h3>项目示范流程GIF</h3>
 
 <div align=center><img width="150" height="150" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/></div>
 
