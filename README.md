@@ -11,7 +11,7 @@
 
 <h3>项目示范流程GIF</h3>
 
-<div align=center><img width="150" height="150" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/></div>
+<div align=center><img width="250" height="250" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/></div>
 
 <h3>如何使用？</h3>
 
