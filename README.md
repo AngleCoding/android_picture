@@ -9,8 +9,7 @@
 
 ```
 
-![image](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/SDGIF_Rusult_1.gif)
-
+![image]( https://github.com/AnglePengCoding/android_picture/blob/main/GIF/SDGIF_Rusult_1.gif)
 
 <h3>如何使用？</h3>
 
