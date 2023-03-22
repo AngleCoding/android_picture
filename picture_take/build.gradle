@@ -4,12 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.AnglePengCoding'
 
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
 
 android {
     namespace 'com.github.yuan.picture_take'
@@ -51,25 +46,4 @@ dependencies {
 }
 
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.github.yuan.picture_take'
-                artifactId = 'take-picture'
-                version = '1.0.0'
-            }
-        }
-
-        repositories {
-            maven {
-                def baseUrl = buildDir.getParent()
-                def releasesRepoUrl = "$baseUrl/repos/releases"
-                def snapshotsRepoUrl = "$baseUrl/repos/snapshots"
-                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            }
-        }
-    }
-}
 
