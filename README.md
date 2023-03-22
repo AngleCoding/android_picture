@@ -1,5 +1,5 @@
-# android_picture
-图片上传，相册选择和相机拍照，裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等
+# 相册选择库
+相册选择和相机拍照，裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等
 
 [![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)
 
@@ -12,7 +12,7 @@
 ```
 
 <h3>项目示范流程</h3>
-[![]([https://jitpack.io/v/AnglePengCoding/android_picture.svg](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif))]
+[![](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif)
 
 <div align=center><img width="250" height="350" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/></div>
 
