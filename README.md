@@ -12,9 +12,7 @@
 
 <h3>项目展示</h3>
 
-<div align="center">
-  <img src="https://github.com/AnglePengCoding/android_picture/blob/main/picture_take/src/pic/Screenshot_1679466244.png">
-</div>
+![image](https://github.com/AnglePengCoding/android_picture/blob/main/IMG/Screenshot_1679466244.png)
 
 ```java
 
