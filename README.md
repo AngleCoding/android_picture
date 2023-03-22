@@ -7,9 +7,7 @@
 
 ```java
 
-  dependencies {
-        implementation 'com.github.AnglePengCoding:android_picture:Tag'
-        }
+  implementation 'com.github.AnglePengCoding:android_picture:Tag'
 
 ```
 
