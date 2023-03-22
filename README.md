@@ -9,7 +9,7 @@
 
 ```
 
-![image](https://github.com/AnglePengCoding/android_picture/blob/main/IMG/Screenshot_1679466244.png)
+![image](https://github.com/AnglePengCoding/android_picture/blob/main/IMG/Screenshot_1679466244.png )
 
 
 <h3>如何使用？</h3>
