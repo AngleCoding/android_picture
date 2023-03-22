@@ -8,8 +8,9 @@
   
 
 ```
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif" width="200"  alt="项目"/><br/>
-![image](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif)
+
+<div align=center><img width="150" height="150" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/></div>
+
 <h3>如何使用？</h3>
 
 ```java
