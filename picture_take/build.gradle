@@ -57,7 +57,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.yuan.picture_take'
-                artifactId = 'picture'
+                artifactId = 'take-picture'
                 version = '1.0.0'
             }
         }
