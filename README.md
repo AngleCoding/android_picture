@@ -32,8 +32,7 @@
 ```
 
 
-<h3>接受值</h3>
-
+<h3> onActivityResult 方法</h3>
 
 ```java
 
