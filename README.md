@@ -13,6 +13,7 @@
 
 <h3>项目示范</h3>
 
+![image](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif)
 
 <img width="250" height="350" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/>
 
