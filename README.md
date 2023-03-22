@@ -1,9 +1,12 @@
-# 相册选择库
-相册选择和相机拍照，裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等
-**
-[![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)
+# [![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)相册选择库
 
-<h3>Add the dependency</h3>
+
+<h3>相册选择和相机拍照，裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等</h3>
+
+
+
+
+<h3>添加依赖</h3>
 
 ```java
 
@@ -11,11 +14,14 @@
 
 ```
 
-<h3>项目示范</h3>
 
-![image](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif)
+<h3>录屏</h3>
 
-<img width="250" height="350" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/>
+<div align=center>
+<img src="[图片地址](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif)" width="350" height="350" />
+</div>
+
+***
 
 <h3>如何使用？</h3>
 
