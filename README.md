@@ -11,10 +11,10 @@
 
 ```
 
-<h3>项目示范流程</h3>
-[![](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif)
+<h3>项目示范</h3>
 
-<div align=center><img width="250" height="350" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/></div>
+
+<img width="250" height="350" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/>
 
 <h3>如何使用？</h3>
 
