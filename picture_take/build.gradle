@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.github.yuan.picture_take'
+group = 'com.github.AnglePengCoding'
 
 android {
     namespace 'com.github.yuan.picture_take'
@@ -51,24 +51,11 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.github.AnglePengCoding'
-                artifactId = 'Android-picture_take'
-                version = '1.0'
-            }
-        }
-    }
-}
-
-
-afterEvaluate {
-    publishing {
-        def versionName = "1.0.0"
-        publications {
-            release(MavenPublication) {
                 groupId = 'com.github.yuan.picture_take'
-                artifactId = 'picture_take'
-                version = versionName
+                artifactId = 'Android-picture_take'
+                version = '1.0.0'
             }
         }
     }
 }
+
