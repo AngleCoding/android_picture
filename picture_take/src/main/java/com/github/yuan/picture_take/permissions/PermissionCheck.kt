@@ -15,7 +15,6 @@ import androidx.core.content.ContextCompat
 
 object PermissionCheck {
 
-
     fun checkReadingPermission(context: Context): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             if (Environment.isExternalStorageManager()) {

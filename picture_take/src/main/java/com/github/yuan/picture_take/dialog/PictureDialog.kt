@@ -1,22 +1,22 @@
 package com.github.yuan.picture_take.dialog
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.Dialog
 import android.content.Context
-import android.os.Build
-import android.os.Environment
+import android.util.Log
 import android.view.Gravity
-import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.github.yuan.picture_take.R
 import com.github.yuan.picture_take.animator.DialogAnimator
 import com.github.yuan.picture_take.animator.TranslateAlphaAnimator
 import com.github.yuan.picture_take.animator.TranslateAnimator
 import com.github.yuan.picture_take.core.DialogInfo
+import com.github.yuan.picture_take.core.DialogInfo.cameraDialogVisibility
+import com.github.yuan.picture_take.core.DialogInfo.fileDialogVisibility
 import com.github.yuan.picture_take.enums.PictureDialogAnimation
 import com.github.yuan.picture_take.permissions.PermissionCheck
 import com.github.yuan.picture_take.utils.PictureUtils
@@ -34,14 +34,25 @@ class PictureDialog(context: Context) : Dialog(context) {
     @SuppressLint("MissingInflatedId")
     private fun initView() {
         setContentView(R.layout.dialog_picker_pictrue)
-        this.window!!.setBackgroundDrawableResource(R.drawable.transparent_bg)
+        this.window!!.setBackgroundDrawableResource(R.drawable.shape_round_white)
         mLlDialog = findViewById(R.id.mLlDialog)
         val lp = window!!.attributes
         lp!!.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.gravity = Gravity.BOTTOM
         window?.attributes = lp
+        initViewVisibility()
         initAnimator()
         initClickListener()
+
+    }
+
+    private fun initViewVisibility() {
+        findViewById<TextView>(R.id.mTvFile).let {
+            if (fileDialogVisibility) it.visibility = VISIBLE else it.visibility = GONE
+        }
+        findViewById<TextView>(R.id.mTvCamera).let {
+            if (cameraDialogVisibility) it.visibility = VISIBLE else it.visibility = GONE
+        }
     }
 
     private fun initClickListener() {
@@ -90,7 +101,7 @@ class PictureDialog(context: Context) : Dialog(context) {
             return TranslateAnimator(
                 mLlDialog.getChildAt(0),
                 DialogInfo.duration,
-                DialogInfo.dialogAnimation!!
+                DialogInfo.dialogAnimation
             )
         }
         return null

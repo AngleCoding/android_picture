@@ -17,5 +17,6 @@ object DialogInfo {
     var cropGridColor: Int = Color.GREEN//裁剪框横竖线的颜色
     var cropGridColumnCount: Int = 2//竖线的数量
     var cropGridRowCount: Int = 1//横线的数量
-
+    var fileDialogVisibility: Boolean = true//设置dialog 相册按钮隐藏
+    var cameraDialogVisibility: Boolean = true//设置dialog 相机按钮隐藏
 }

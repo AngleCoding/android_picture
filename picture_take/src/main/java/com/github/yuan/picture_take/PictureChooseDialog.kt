@@ -7,8 +7,10 @@ import com.github.yuan.picture_take.core.DialogInfo
 import com.github.yuan.picture_take.dialog.PictureDialog
 import com.github.yuan.picture_take.enums.PictureDialogAnimation
 import java.time.Duration
+
 /**
  * @author Yuang
+ *  图片上传 相机和相册
  */
 class PictureChooseDialog {
 
@@ -68,7 +70,7 @@ class PictureChooseDialog {
         }
 
         /**
-         *设置竖线的数量
+         *设置裁剪竖线的数量
          */
         fun setCropGridColumnCount(cropGridColumnCount: Int): Builder {
             DialogInfo.cropGridColumnCount = DialogInfo.cropGridColumnCount
@@ -76,7 +78,7 @@ class PictureChooseDialog {
         }
 
         /**
-         *设置横线的数量
+         *设置裁剪横线的数量
          */
         fun setCropGridRowCount(cropGridRowCount: Int): Builder {
             DialogInfo.cropGridRowCount = DialogInfo.cropGridRowCount
@@ -84,7 +86,7 @@ class PictureChooseDialog {
         }
 
         /**
-         * 设置动画时长
+         * 设置dialog动画时长
          */
         fun setAnimationDuration(duration: Int): Builder {
             DialogInfo.duration = duration
@@ -92,10 +94,26 @@ class PictureChooseDialog {
         }
 
         /**
-         * 设置弹窗动画
+         * 设置dialog弹窗动画
          */
         fun pictureDialogAnimation(dialogAnimation: PictureDialogAnimation): Builder {
             DialogInfo.dialogAnimation = dialogAnimation
+            return this
+        }
+
+        /**
+         * 设置dialog 相册按钮隐藏
+         */
+        fun setFileDialogVisibility(fileDialogVisibility: Boolean): Builder {
+            DialogInfo.fileDialogVisibility = fileDialogVisibility
+            return this
+        }
+
+        /**
+         * 设置dialog 相机按钮隐藏
+         */
+        fun setCameraDialogVisibility(fileDialogVisibility: Boolean): Builder {
+            DialogInfo.cameraDialogVisibility = fileDialogVisibility
             return this
         }
 
