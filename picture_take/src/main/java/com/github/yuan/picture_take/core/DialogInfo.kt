@@ -19,4 +19,8 @@ object DialogInfo {
     var cropGridRowCount: Int = 1//横线的数量
     var fileDialogVisibility: Boolean = true//设置dialog 相册按钮隐藏
     var cameraDialogVisibility: Boolean = true//设置dialog 相机按钮隐藏
+    var fileTextSize: Float = 16f
+    var cameraTextSize: Float = 16f
+    var fileTextColor: Int = Color.parseColor("#5C5C68")
+    var cameraTextColor: Int = Color.parseColor("#5C5C68")
 }

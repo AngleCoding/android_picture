@@ -22,6 +22,78 @@ class PictureChooseDialog {
     class Builder(private val context: Context) {
 
         /**
+         * 设置dialog“相册”按钮字体大小
+         */
+        fun setFileTextSize(fileTextSize: Float): Builder {
+            DialogInfo.fileTextSize = fileTextSize
+            return this
+        }
+
+        /**
+         * 设置dialog“相册”按钮字体颜色
+         */
+        fun setFileTextColor(@ColorInt fileTextColor: Int): Builder {
+            DialogInfo.fileTextColor = fileTextColor
+            return this
+        }
+
+        /**
+         * 设置dialog“相机”按钮字体大小
+         */
+        fun setCameraTextSize(cameraTextSize: Float): Builder {
+            DialogInfo.cameraTextSize = cameraTextSize
+            return this
+        }
+
+        /**
+         * 设置dialog“相机”按钮字体颜色
+         */
+        fun setCameraTextColor(@ColorInt cameraTextColor: Int): Builder {
+            DialogInfo.cameraTextColor = cameraTextColor
+            return this
+        }
+
+        /**
+         * 设置dialog动画时长
+         */
+        fun setAnimationDuration(duration: Int): Builder {
+            DialogInfo.duration = duration
+            return this
+        }
+
+        /**
+         * 设置dialog弹窗动画
+         */
+        fun pictureDialogAnimation(dialogAnimation: PictureDialogAnimation): Builder {
+            DialogInfo.dialogAnimation = dialogAnimation
+            return this
+        }
+
+        /**
+         * 设置dialog 相册按钮隐藏
+         */
+        fun setFileDialogVisibility(fileDialogVisibility: Boolean): Builder {
+            DialogInfo.fileDialogVisibility = fileDialogVisibility
+            return this
+        }
+
+        /**
+         * 设置dialog 相机按钮隐藏
+         */
+        fun setCameraDialogVisibility(fileDialogVisibility: Boolean): Builder {
+            DialogInfo.cameraDialogVisibility = fileDialogVisibility
+            return this
+        }
+
+        /**
+         * 显示弹窗
+         */
+        fun show(): Builder {
+            PictureDialog(context).show()
+            return this
+        }
+
+        /**
          * 设置裁剪ToolbarColor
          */
         fun setUCropToolbarColor(uCropToolbarColor: Int): Builder {
@@ -82,46 +154,6 @@ class PictureChooseDialog {
          */
         fun setCropGridRowCount(cropGridRowCount: Int): Builder {
             DialogInfo.cropGridRowCount = DialogInfo.cropGridRowCount
-            return this
-        }
-
-        /**
-         * 设置dialog动画时长
-         */
-        fun setAnimationDuration(duration: Int): Builder {
-            DialogInfo.duration = duration
-            return this
-        }
-
-        /**
-         * 设置dialog弹窗动画
-         */
-        fun pictureDialogAnimation(dialogAnimation: PictureDialogAnimation): Builder {
-            DialogInfo.dialogAnimation = dialogAnimation
-            return this
-        }
-
-        /**
-         * 设置dialog 相册按钮隐藏
-         */
-        fun setFileDialogVisibility(fileDialogVisibility: Boolean): Builder {
-            DialogInfo.fileDialogVisibility = fileDialogVisibility
-            return this
-        }
-
-        /**
-         * 设置dialog 相机按钮隐藏
-         */
-        fun setCameraDialogVisibility(fileDialogVisibility: Boolean): Builder {
-            DialogInfo.cameraDialogVisibility = fileDialogVisibility
-            return this
-        }
-
-        /**
-         * 显示弹窗
-         */
-        fun show(): Builder {
-            PictureDialog(context).show()
             return this
         }
 

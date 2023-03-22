@@ -16,7 +16,11 @@ import com.github.yuan.picture_take.animator.TranslateAlphaAnimator
 import com.github.yuan.picture_take.animator.TranslateAnimator
 import com.github.yuan.picture_take.core.DialogInfo
 import com.github.yuan.picture_take.core.DialogInfo.cameraDialogVisibility
+import com.github.yuan.picture_take.core.DialogInfo.cameraTextColor
+import com.github.yuan.picture_take.core.DialogInfo.cameraTextSize
 import com.github.yuan.picture_take.core.DialogInfo.fileDialogVisibility
+import com.github.yuan.picture_take.core.DialogInfo.fileTextColor
+import com.github.yuan.picture_take.core.DialogInfo.fileTextSize
 import com.github.yuan.picture_take.enums.PictureDialogAnimation
 import com.github.yuan.picture_take.permissions.PermissionCheck
 import com.github.yuan.picture_take.utils.PictureUtils
@@ -49,10 +53,15 @@ class PictureDialog(context: Context) : Dialog(context) {
     private fun initViewVisibility() {
         findViewById<TextView>(R.id.mTvFile).let {
             if (fileDialogVisibility) it.visibility = VISIBLE else it.visibility = GONE
+            it.textSize = fileTextSize
+            it.setTextColor(fileTextColor)
         }
         findViewById<TextView>(R.id.mTvCamera).let {
             if (cameraDialogVisibility) it.visibility = VISIBLE else it.visibility = GONE
+            it.textSize = cameraTextSize
+            it.setTextColor(cameraTextColor)
         }
+
     }
 
     private fun initClickListener() {
