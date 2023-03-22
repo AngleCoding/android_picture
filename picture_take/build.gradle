@@ -6,6 +6,11 @@ plugins {
 
 group = 'com.github.AnglePengCoding'
 
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
 android {
     namespace 'com.github.yuan.picture_take'
     compileSdk 33
