@@ -15,7 +15,6 @@ import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
-
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
