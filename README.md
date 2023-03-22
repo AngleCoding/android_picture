@@ -12,6 +12,7 @@
 ```
 
 <h3>项目示范流程</h3>
+[![]([https://jitpack.io/v/AnglePengCoding/android_picture.svg](https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif))]
 
 <div align=center><img width="250" height="350" src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif"/></div>
 
