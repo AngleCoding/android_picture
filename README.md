@@ -2,10 +2,13 @@
 图片上传，相册选择和相机拍照，裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等
 
 
-<h3>添加</h3>
+<h3>Add the dependency</h3>
 
 ```java
-  
+
+  dependencies {
+        implementation 'com.github.AnglePengCoding:android_picture:Tag'
+        }
 
 ```
 
