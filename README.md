@@ -18,11 +18,11 @@
 <h3>录屏</h3>
 
 <div align=start>
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/image.gif" width="350" height="450" />
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/image.gif" width="250" height="250" />
 </div>
 
 <div align=end>
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/camera.gif" width="350" height="450" />
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/camera.gif" width="250" height="250" />
 </div>
 
 <h3>如何使用？</h3>
