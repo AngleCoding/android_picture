@@ -2,15 +2,14 @@ package com.github.yuan.picture_take
 
 import android.content.Context
 import androidx.annotation.ColorInt
-import com.github.yuan.picture_take.animator.DialogAnimator
 import com.github.yuan.picture_take.core.DialogInfo
 import com.github.yuan.picture_take.dialog.PictureDialog
 import com.github.yuan.picture_take.enums.PictureDialogAnimation
-import java.time.Duration
 
 /**
  * @author Yuang
- *  图片上传 相机和相册
+ *  相册选择库
+ *
  */
 class PictureChooseDialog {
 
@@ -85,13 +84,6 @@ class PictureChooseDialog {
             return this
         }
 
-        /**
-         * 显示弹窗
-         */
-        fun show(): Builder {
-            PictureDialog(context).show()
-            return this
-        }
 
         /**
          * 设置裁剪ToolbarColor
@@ -145,7 +137,7 @@ class PictureChooseDialog {
          *设置裁剪竖线的数量
          */
         fun setCropGridColumnCount(cropGridColumnCount: Int): Builder {
-            DialogInfo.cropGridColumnCount = DialogInfo.cropGridColumnCount
+            DialogInfo.cropGridColumnCount = cropGridColumnCount
             return this
         }
 
@@ -153,7 +145,31 @@ class PictureChooseDialog {
          *设置裁剪横线的数量
          */
         fun setCropGridRowCount(cropGridRowCount: Int): Builder {
-            DialogInfo.cropGridRowCount = DialogInfo.cropGridRowCount
+            DialogInfo.cropGridRowCount = cropGridRowCount
+            return this
+        }
+
+        /**
+         * 设置相机RequestCode
+         */
+        fun setCameraRequestCode(cameraRequestCode: Int): Builder {
+            DialogInfo.cameraRequestCode = cameraRequestCode
+            return this
+        }
+
+        /**
+         * 设置相册RequestCode
+         */
+        fun setImageRequestCode(imageRequestCode: Int): Builder {
+            DialogInfo.imageRequestCode = imageRequestCode
+            return this
+        }
+
+        /**
+         * 显示弹窗
+         */
+        fun show(): Builder {
+            PictureDialog(context).show()
             return this
         }
 

@@ -19,7 +19,7 @@
 
 <div align=center>
 
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif" width="350" height="350" />
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/gif1.gif" width="350" height="450" />
 
 </div>
 
@@ -29,26 +29,33 @@
 
 ```java
 
-          findViewById<Button>(R.id.mBtTake).setOnClickListener {
-            PictureChooseDialog.build(this) {
-                setFileTextSize(18f)//设置dialog“相册”按钮字体大小
-                setFileTextColor(Color.parseColor("#FF3700B3"))//设置dialog“相册”按钮字体颜色
-                setCameraTextSize(15f)//设置dialog“相机”按钮字体大小
-                setCameraTextColor(R.color.black)//设置dialog“相机”按钮字体颜色
-                setAnimationDuration(2000)//设置dialog动画时长 可不设置
-                pictureDialogAnimation(PictureDialogAnimation.TranslateFromBottom)//设置dialog弹窗动画  可不设置
-                setCameraDialogVisibility(true)//设置dialog 相机按钮隐藏  根据业务需求
-                setFileDialogVisibility(true)//设置dialog 相册按钮隐藏  根据业务需求
-                setUCropToolbarColor(R.color.teal_200)//设置裁剪ToolbarColor   可不设置
-                setUCropStatusBarColor(R.color.teal_200)//设置裁剪状态栏颜色   可不设置
-                setMaxScaleMultiplier(2f)//裁剪最大缩放比例  可不设置
-                setImageToCropBoundsAnimDuration(1000)//设置图片在切换比例时的动画  可不设置
-                setShowCropFrame(true)//设置是否展示矩形裁剪框  可不设置
-                setCropGridStrokeWidth(R.color.teal_200)//设置裁剪框横竖线的颜色 可不设置
-                setCropGridColumnCount(1)//设置裁剪竖线的数量 可不设置
-                setCropGridRowCount(2)//设置裁剪横线的数量 可不设置
-                show() //必设置
-            }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        findViewById<Button>(R.id.mBtTake).setOnClickListener {
+        PictureChooseDialog.build(this) {
+        setFileTextSize(18f)//设置dialog“相册”按钮字体大小
+        setFileTextColor(Color.parseColor("#FF3700B3"))//设置dialog“相册”按钮字体颜色
+        setCameraTextSize(15f)//设置dialog“相机”按钮字体大小
+        setCameraTextColor(Color.parseColor("#ffcc0000"))//设置dialog“相机”按钮字体颜色
+        setAnimationDuration(2000)//设置dialog动画时长 可不设置
+        pictureDialogAnimation(PictureDialogAnimation.TranslateFromBottom)//设置dialog弹窗动画  可不设置
+        setCameraDialogVisibility(true)//设置dialog 相机按钮隐藏  根据业务需求
+        setFileDialogVisibility(true)//设置dialog 相册按钮隐藏  根据业务需求
+        setUCropToolbarColor(R.color.teal_200)//设置裁剪ToolbarColor   可不设置
+        setUCropStatusBarColor(R.color.teal_200)//设置裁剪状态栏颜色   可不设置
+        setMaxScaleMultiplier(2f)//裁剪最大缩放比例  可不设置
+        setImageToCropBoundsAnimDuration(1000)//设置图片在切换比例时的动画  可不设置
+        setShowCropFrame(true)//设置是否展示矩形裁剪框  可不设置
+        setCropGridStrokeWidth(R.color.teal_200)//设置裁剪框横竖线的颜色 可不设置
+        setCropGridColumnCount(1)//设置裁剪竖线的数量 可不设置
+        setCropGridRowCount(2)//设置裁剪横线的数量 可不设置
+        setCameraRequestCode(10086)//设置相机RequestCode
+        setImageRequestCode(10096)//设置相册RequestCode
+        show() //必设置
+        }
+        }
         }
 
         
@@ -60,37 +67,30 @@
 ```java
 
 
-    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == RESULT_OK) {
-            when (requestCode) {
-                PictureUtils.GET_IMAGE_FROM_PHONE -> { //选择相册之后的处理
-                    data?.data?.let { PictureUtils.initUCrop(this, it) }
-                }
+        when (requestCode) {
+        10096 -> { //选择相册之后的处理
+        data?.data?.let { PictureUtils.initUCrop(this, it) }
+        }
 
-                PictureUtils.GET_IMAGE_BY_CAMERA -> { //选择相机之后的处理
-                    PictureUtils.initUCrop(this, PictureUtils.imageUriFromCamera)
-                }
+        10086 -> { //选择相机之后的处理
+        PictureUtils.initUCrop(this, PictureUtils.imageUriFromCamera)
+        }
 
-                UCrop.REQUEST_CROP -> {
-                    val resultUri = UCrop.getOutput(data!!)
-                    val my_avatar =
-                        File(PictureUtils.getImageAbsolutePath(this, resultUri).toString())
-                    findViewById<ImageView>(R.id.mIv).post {
-                        findViewById<ImageView>(R.id.mIv).setImageURI(resultUri)
-                    }
-
-//                    val partList: MutableList<MultipartBody.Part> = ArrayList()
-//                    val requestBody =
-//                        RequestBody.create(MediaType.parse("multipart/form-data"), my_avatar)
-//                    val imageBodyPart =
-//                        MultipartBody.Part.createFormData("files", my_avatar.name, requestBody)
-//                    partList.add(imageBodyPart)
-                }
-            }
+        UCrop.REQUEST_CROP -> { //裁剪之后处理
+        val resultUri = UCrop.getOutput(data!!)
+        //获取的File文件
+        val file =
+        File(PictureUtils.getImageAbsolutePath(this, resultUri).toString())
+        findViewById<ImageView>(R.id.mIv).post {
+        findViewById<ImageView>(R.id.mIv).setImageURI(resultUri)
+        }
+        }
+        }
         }
         super.onActivityResult(requestCode, resultCode, data)
-    }
+        }
 
 ```
 
