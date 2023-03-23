@@ -18,8 +18,8 @@
 <h3>录屏</h3>
 
 <div align=start>
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/image.gif" width="250" height="250" />
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/camera.gif" width="250" height="250" />
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/image.gif" width="250" height="350" />
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/camera.gif" width="250" height="350" />
 </div>
 
 
