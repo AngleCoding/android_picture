@@ -92,6 +92,13 @@
 
 ```
 
+<h3>欢迎打赏</h3>
+
+<div align=start>
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/wx.jpg" width="250" height="300" />
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/zfb.jpg" width="250" height="300" />
+</div>
+
 
 
 MIT License
