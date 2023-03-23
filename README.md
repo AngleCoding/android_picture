@@ -94,7 +94,7 @@
 
 
 ***
-<h3>欢迎打赏</h3>
+<h3>欢迎帅哥美女打赏，在下感激不尽</h3>
 
 <div align=start>
 <img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/wx.jpg" width="200" height="200" />
