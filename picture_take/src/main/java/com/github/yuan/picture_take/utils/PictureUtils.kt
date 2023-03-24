@@ -6,20 +6,19 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.github.yuan.picture_take.core.DialogInfo.cameraRequestCode
+import com.github.yuan.picture_take.core.DialogInfo.cameraSingleRequestCode
 import com.github.yuan.picture_take.core.DialogInfo.cropFrame
 import com.github.yuan.picture_take.core.DialogInfo.cropGridColor
 import com.github.yuan.picture_take.core.DialogInfo.cropGridColumnCount
 import com.github.yuan.picture_take.core.DialogInfo.cropGridRowCount
 import com.github.yuan.picture_take.core.DialogInfo.cropGridStrokeWidth
-import com.github.yuan.picture_take.core.DialogInfo.imageRequestCode
+import com.github.yuan.picture_take.core.DialogInfo.imageSingleRequestCode
 import com.github.yuan.picture_take.core.DialogInfo.imageToCropBoundsAnimDuration
 import com.github.yuan.picture_take.core.DialogInfo.uCropStatusBarColor
 import com.github.yuan.picture_take.core.DialogInfo.uCropToolbarColor
@@ -43,7 +42,7 @@ object PictureUtils {
     fun openLocalImage(context: Context) {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
-        (context as AppCompatActivity).startActivityForResult(intent, imageRequestCode)
+        (context as AppCompatActivity).startActivityForResult(intent, imageSingleRequestCode)
     }
 
     /**
@@ -53,7 +52,7 @@ object PictureUtils {
         imageUriFromCamera = createImagePathUri((context as AppCompatActivity))
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriFromCamera)
-        context.startActivityForResult(intent, cameraRequestCode)
+        context.startActivityForResult(intent, cameraSingleRequestCode)
     }
 
 

@@ -5,6 +5,8 @@ import androidx.annotation.ColorInt
 import com.github.yuan.picture_take.core.DialogInfo
 import com.github.yuan.picture_take.dialog.PictureDialog
 import com.github.yuan.picture_take.enums.PictureDialogAnimation
+import com.luck.picture.lib.entity.LocalMedia
+import com.luck.picture.lib.interfaces.OnResultCallbackListener
 
 /**
  * @author Yuang
@@ -150,18 +152,44 @@ class PictureChooseDialog {
         }
 
         /**
-         * 设置相机RequestCode
+         * 设置单图相机RequestCode
          */
-        fun setCameraRequestCode(cameraRequestCode: Int): Builder {
-            DialogInfo.cameraRequestCode = cameraRequestCode
+        fun setSingleCameraRequestCode(cameraSingleRequestCode: Int): Builder {
+            DialogInfo.cameraSingleRequestCode = cameraSingleRequestCode
             return this
         }
 
         /**
-         * 设置相册RequestCode
+         * 设置单图相册RequestCode
          */
-        fun setImageRequestCode(imageRequestCode: Int): Builder {
-            DialogInfo.imageRequestCode = imageRequestCode
+        fun setSingleImageRequestCode(imageSingleRequestCode: Int): Builder {
+            DialogInfo.imageSingleRequestCode = imageSingleRequestCode
+            return this
+        }
+
+        /**
+         * 上传模式是单图/多图
+         * true是单图 false 多图
+         */
+        fun setSingleOrMutableMode(singleOrMutableMode: Boolean): Builder {
+            DialogInfo.singleOrMutableMode = singleOrMutableMode
+            return this
+        }
+
+
+        /**
+         * 多图模式-相册回显数据
+         */
+        fun setImageMutableForResult(onImageResultCallbackListener: OnResultCallbackListener<LocalMedia>): Builder {
+            DialogInfo.onImageResultCallbackListener = onImageResultCallbackListener
+            return this
+        }
+
+        /**
+         * 多图模式-相机回显数据
+         */
+        fun setCameraMutableForResult(onImageResultCallbackListener: OnResultCallbackListener<LocalMedia>): Builder {
+            DialogInfo.onImageResultCallbackListener = onImageResultCallbackListener
             return this
         }
 

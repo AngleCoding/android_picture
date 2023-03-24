@@ -23,47 +23,24 @@
 </div>
 
 
-<h3>如何使用？</h3>
+<h3>单图功能</h3>
 
 ```java
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.mBtTake).setOnClickListener {
-        PictureChooseDialog.build(this) {
-        setFileTextSize(18f)//设置dialog“相册”按钮字体大小
-        setFileTextColor(Color.parseColor("#FF3700B3"))//设置dialog“相册”按钮字体颜色
-        setCameraTextSize(15f)//设置dialog“相机”按钮字体大小
-        setCameraTextColor(Color.parseColor("#ffcc0000"))//设置dialog“相机”按钮字体颜色
-        setAnimationDuration(2000)//设置dialog动画时长 可不设置
-        pictureDialogAnimation(PictureDialogAnimation.TranslateFromBottom)//设置dialog弹窗动画  可不设置
-        setCameraDialogVisibility(true)//设置dialog 相机按钮隐藏  根据业务需求
-        setFileDialogVisibility(true)//设置dialog 相册按钮隐藏  根据业务需求
-        setUCropToolbarColor(R.color.teal_200)//设置裁剪ToolbarColor   可不设置
-        setUCropStatusBarColor(R.color.teal_200)//设置裁剪状态栏颜色   可不设置
-        setMaxScaleMultiplier(2f)//裁剪最大缩放比例  可不设置
-        setImageToCropBoundsAnimDuration(1000)//设置图片在切换比例时的动画  可不设置
-        setShowCropFrame(true)//设置是否展示矩形裁剪框  可不设置
-        setCropGridStrokeWidth(R.color.teal_200)//设置裁剪框横竖线的颜色 可不设置
-        setCropGridColumnCount(1)//设置裁剪竖线的数量 可不设置
-        setCropGridRowCount(2)//设置裁剪横线的数量 可不设置
-        setCameraRequestCode(10086)//设置相机RequestCode
-        setImageRequestCode(10096)//设置相册RequestCode
+    PictureChooseDialog.build(this) {
+        setSingleCameraRequestCode(10086)//设置单图相机RequestCode
+        setSingleImageRequestCode(10096)//设置单图相册RequestCode
         show() //必设置
-        }
-        }
         }
 
         
 ```
 
 
-<h3> onActivityResult 方法</h3>
+<h3> onActivityResult </h3>
 
 ```java
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == RESULT_OK) {
@@ -89,6 +66,37 @@
         }
         super.onActivityResult(requestCode, resultCode, data)
         }
+
+```
+
+<h3>裁剪功能</h3>
+
+```java
+               
+            setUCropToolbarColor(R.color.teal_200)//设置裁剪ToolbarColor   可不设置
+            setUCropStatusBarColor(R.color.teal_200)//设置裁剪状态栏颜色   可不设置
+            setMaxScaleMultiplier(2f)//设置裁剪最大缩放比例  可不设置
+            setImageToCropBoundsAnimDuration(1000)//设置图片在切换比例时的动画  可不设置
+            setShowCropFrame(true)//设置是否展示矩形裁剪框  可不设置
+            setCropGridStrokeWidth(R.color.teal_200)//设置裁剪框横竖线的颜色 可不设置
+            setCropGridColumnCount(1)//设置裁剪竖线的数量 可不设置
+            setCropGridRowCount(2)//设置裁剪横线的数量 可不设置
+
+```
+
+
+<h3>更多功能</h3>
+
+```java
+
+            setFileTextSize(18f)//设置dialog“相册”按钮字体大小  根据业务需求
+            setFileTextColor(Color.parseColor("#FF3700B3"))//设置dialog“相册”按钮字体颜色  根据业务需求
+            setCameraTextSize(15f)//设置dialog“相机”按钮字体大小  根据业务需求
+            setCameraTextColor(Color.parseColor("#ffcc0000"))//设置dialog“相机”按钮字体颜色  根据业务需求
+            setAnimationDuration(2000)//设置dialog动画时长  根据业务需求
+            pictureDialogAnimation(PictureDialogAnimation.TranslateFromBottom)//设置dialog弹窗动画  根据业务需求
+            setCameraDialogVisibility(true)//设置dialog 相机按钮隐藏  根据业务需求
+            setFileDialogVisibility(true)//设置dialog 相册按钮隐藏  根据业务需求
 
 ```
 
