@@ -133,7 +133,7 @@
 ```
 
 
-<h3>弹窗样式功能</h3>
+<h3>弹窗样式以及其他辅助功能</h3>
 
 ```java
 
@@ -145,6 +145,27 @@
             pictureDialogAnimation(PictureDialogAnimation.TranslateFromBottom)//设置dialog弹窗动画  根据业务需求
             setCameraDialogVisibility(true)//设置dialog 相机按钮隐藏  根据业务需求
             setFileDialogVisibility(true)//设置dialog 相册按钮隐藏  根据业务需求
+
+            <!-- 其他辅助功能-->
+            setRecyclerAnimationMode()//相册列表动画效果
+            setLanguage()//设置相册语言
+            setRequestedOrientation()//设置屏幕旋转方向
+            setMaxVideoSelectNum()//视频最大选择数量
+            setMinVideoSelectNum()//视频最小选择数量
+            isPreviewAudio()//是否支持音频预览
+            isPreviewImage()//是否支持预览图片
+            isPreviewFullScreenMode()//预览点击全屏效果
+            isWithSelectVideoImage()//是否支持视频图片同选
+            isEmptyResultReturn()//支持未选择返回
+            isCameraRotateImage()//拍照是否纠正旋转图片
+            isAutoVideoPlay()//预览视频是否自动播放
+            isFastSlidingSelect()//快速滑动选择
+            isDirectReturnSingle()//单选时是否立即返回
+            setCameraImageFormat()//拍照图片输出格式
+            setCameraImageFormatForQ()//拍照图片输出格式，Android Q以上
+            setCameraVideoFormat()//拍照视频输出格式
+            setCameraInterceptListener()//拦截相机事件，实现自定义相机
+            
 
 ```
 
