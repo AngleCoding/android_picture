@@ -42,32 +42,80 @@
 
 ```java
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == RESULT_OK) {
-        when (requestCode) {
-        10096 -> { //选择相册之后的处理
-        data?.data?.let { PictureUtils.initUCrop(this, it) }
-        }
+            when (requestCode) {
+                10096 -> { //选择相册之后的处理
+                    data?.data?.let { PictureUtils.initUCrop(this, it) }
+                }
 
-        10086 -> { //选择相机之后的处理
-        PictureUtils.initUCrop(this, PictureUtils.imageUriFromCamera)
-        }
+                10086 -> { //选择相机之后的处理
+                    PictureUtils.initUCrop(this, PictureUtils.imageUriFromCamera)
+                }
 
-        UCrop.REQUEST_CROP -> { //裁剪之后处理
-        val resultUri = UCrop.getOutput(data!!)
-        //获取的File文件
-        val file =
-        File(PictureUtils.getImageAbsolutePath(this, resultUri).toString())
-        findViewById<ImageView>(R.id.mIv).post {
-        findViewById<ImageView>(R.id.mIv).setImageURI(resultUri)
-        }
-        }
-        }
+                UCrop.REQUEST_CROP -> { //裁剪之后处理
+                    val resultUri = UCrop.getOutput(data!!)
+                    //获取的File文件
+                    val file =
+                        File(PictureUtils.getImageAbsolutePath(this, resultUri).toString())
+                    findViewById<ImageView>(R.id.mIv).post {
+                        findViewById<ImageView>(R.id.mIv).setImageURI(resultUri)
+                    }
+                }
+            }
         }
         super.onActivityResult(requestCode, resultCode, data)
-        }
+    }
+
 
 ```
+
+<h3>多图功能</h3>
+
+```java
+  
+        adapter = GridImageAdapter(mContext)
+        adapter.setAddPicClickListener(this)
+        cameraBinding.mRecyclerView.layoutManager = FullyGridLayoutManager(mContext, 4)
+        cameraBinding.mRecyclerView.adapter = adapter
+                
+                
+    override fun onAddPicClick(position: Int) {
+        PictureChooseDialog.build(this) {
+            setSingleOrMutableMode(true)//开启多图模式
+            setMaxSelectNum(2)//最大数量
+            openGalleryChooseMode(SelectMimeType.TYPE_ALL)//多图模式-相册
+            openCameraChooseMode(SelectMimeType.TYPE_ALL)//多图模式-相机
+            setSelectedData(adapter.data)// 相册已选数据
+            setImageMutableForResult(object : OnResultCallbackListener<LocalMedia> {
+                //多图模式-选择相册回显数据
+                override fun onResult(result: ArrayList<LocalMedia>) {
+                    adapter.setList(result)
+                }
+
+                override fun onCancel() {
+                }
+
+            })
+            setCameraMutableForResult(object : OnResultCallbackListener<LocalMedia> {
+                //多图模式-选择相机回显数据
+                override fun onResult(result: ArrayList<LocalMedia>) {
+                    adapter.setList(result)
+                }
+
+                override fun onCancel() {
+                }
+
+            })
+
+            show()
+        }
+    }
+
+
+```
+
 
 <h3>裁剪功能</h3>
 
@@ -85,7 +133,7 @@
 ```
 
 
-<h3>弹窗以及更多功能</h3>
+<h3>弹窗样式功能</h3>
 
 ```java
 

@@ -2,11 +2,12 @@ package com.github.yuan.picture_take
 
 import android.content.Context
 import androidx.annotation.ColorInt
-import com.github.yuan.picture_take.core.DialogInfo
+import com.github.yuan.picture_take.app.DialogInfo
 import com.github.yuan.picture_take.dialog.PictureDialog
+import com.github.yuan.picture_take.entity.LocalMedia
 import com.github.yuan.picture_take.enums.PictureDialogAnimation
-import com.luck.picture.lib.entity.LocalMedia
-import com.luck.picture.lib.interfaces.OnResultCallbackListener
+import com.github.yuan.picture_take.interfaces.OnCameraInterceptListener
+import com.github.yuan.picture_take.interfaces.OnResultCallbackListener
 
 /**
  * @author Yuang
@@ -168,7 +169,7 @@ class PictureChooseDialog {
         }
 
         /**
-         * 上传模式是单图/多图
+         * 开启多图模式
          * true是单图 false 多图
          */
         fun setSingleOrMutableMode(singleOrMutableMode: Boolean): Builder {
@@ -178,7 +179,7 @@ class PictureChooseDialog {
 
 
         /**
-         * 多图模式-相册回显数据
+         *多图模式-选择相册回显数据
          */
         fun setImageMutableForResult(onImageResultCallbackListener: OnResultCallbackListener<LocalMedia>): Builder {
             DialogInfo.onImageResultCallbackListener = onImageResultCallbackListener
@@ -186,10 +187,222 @@ class PictureChooseDialog {
         }
 
         /**
-         * 多图模式-相机回显数据
+         * 多图模式-选择相机回显数据
          */
         fun setCameraMutableForResult(onImageResultCallbackListener: OnResultCallbackListener<LocalMedia>): Builder {
             DialogInfo.onImageResultCallbackListener = onImageResultCallbackListener
+            return this
+        }
+
+
+        /**
+         * 多图模式-相册
+         * 相册/视频/音频/全部
+         *  SelectMimeType.TYPE_IMAGE
+         */
+        fun openGalleryChooseMode(galleryChooseMode: Int): Builder {
+            DialogInfo.galleryChooseMode = galleryChooseMode
+            return this
+        }
+
+        /**
+         *  多图模式-相机
+         * 相册/视频/音频/全部
+         */
+        fun openCameraChooseMode(cameraChooseMode: Int): Builder {
+            DialogInfo.cameraChooseMode = cameraChooseMode
+            return this
+        }
+
+        /**
+         * 多图模式- 图片最大选择数量
+         */
+        fun setMaxSelectNum(maxSelectNum: Int): Builder {
+            DialogInfo.maxSelectNum = maxSelectNum
+            return this
+        }
+
+        /**
+         * 多图模式- 图片最小选择数量
+         */
+        fun setMinSelectNum(minSelectNum: Int): Builder {
+            DialogInfo.minSelectNum = minSelectNum
+            return this
+        }
+
+        /**
+         * 多图模式- 单选或是多选
+         */
+        fun selectionMode(selectionMode: Int): Builder {
+            DialogInfo.selectionMode = selectionMode
+            return this
+        }
+
+        /**
+         *多图模式- 相册已选数据
+         */
+        fun setSelectedData(selectedList: List<LocalMedia>): Builder {
+            DialogInfo.selectedList = selectedList
+            return this
+        }
+
+        /**
+         * 多图模式- 相册列表动画效果
+         */
+        fun setRecyclerAnimationMode(animationMode: Int): Builder {
+            DialogInfo.animationMode = animationMode
+            return this
+        }
+
+        /**
+         * 多图模式-设置相册语言
+         */
+        fun setLanguage(language: Int): Builder {
+            DialogInfo.language = language
+            return this
+        }
+
+        /**
+         * 多图模式-设置屏幕旋转方向
+         */
+        fun setRequestedOrientation(requestedOrientation: Int): Builder {
+            DialogInfo.requestedOrientation = requestedOrientation
+            return this
+        }
+
+
+        /**
+         * 多图模式-视频最大选择数量
+         */
+        fun setMaxVideoSelectNum(maxVideoSelectNum: Int): Builder {
+            DialogInfo.maxVideoSelectNum = maxVideoSelectNum
+            return this
+        }
+
+
+        /**
+         * 多图模式-视频最小选择数量
+         */
+        fun setMinVideoSelectNum(minVideoSelectNum: Int): Builder {
+            DialogInfo.minVideoSelectNum = minVideoSelectNum
+            return this
+        }
+
+
+        /**
+         * 多图模式-是否支持音频预览
+         */
+        fun isPreviewAudio(isPreviewAudio: Boolean): Builder {
+            DialogInfo.isPreviewAudio = isPreviewAudio
+            return this
+        }
+
+
+        /**
+         * 多图模式-是否支持预览图片
+         */
+        fun isPreviewImage(isPreviewImage: Boolean): Builder {
+            DialogInfo.isPreviewImage = isPreviewImage
+            return this
+        }
+
+
+        /**
+         * 多图模式-预览点击全屏效果
+         */
+        fun isPreviewFullScreenMode(isFullScreenModel: Boolean): Builder {
+            DialogInfo.isFullScreenModel = isFullScreenModel
+            return this
+        }
+
+        /**
+         * 多图模式-是否支持视频图片同选
+         */
+        fun isWithSelectVideoImage(isWithVideoImage: Boolean): Builder {
+            DialogInfo.isWithVideoImage = isWithVideoImage
+            return this
+        }
+
+        /**
+         * 多图模式-支持未选择返回
+         */
+        fun isEmptyResultReturn(isEmptyReturn: Boolean): Builder {
+            DialogInfo.isEmptyReturn = isEmptyReturn
+            return this
+        }
+
+        /**
+         * 多图模式-拍照是否纠正旋转图片
+         */
+        fun isCameraRotateImage(isCameraRotateImage: Boolean): Builder {
+            DialogInfo.isCameraRotateImage = isCameraRotateImage
+            return this
+        }
+
+        /**
+         * 多图模式-预览视频是否自动播放
+         */
+        fun isAutoVideoPlay(isAutoPlay: Boolean): Builder {
+            DialogInfo.isAutoPlay = isAutoPlay
+            return this
+        }
+
+
+        /**
+         * 多图模式-快速滑动选择
+         */
+        fun isFastSlidingSelect(isFastSlidingSelect: Boolean): Builder {
+            DialogInfo.isFastSlidingSelect = isFastSlidingSelect
+            return this
+        }
+
+
+        /**
+         * 多图模式- 单选时是否立即返回
+         */
+        fun isDirectReturnSingle(isDirectReturn: Boolean): Builder {
+            DialogInfo.isDirectReturn = isDirectReturn
+            return this
+        }
+
+        /**
+         * 多图模式- 拍照图片输出格式
+         */
+        fun setCameraImageFormat(imageFormat: String): Builder {
+            DialogInfo.imageFormat = imageFormat
+            return this
+        }
+
+        /**
+         * 多图模式- 拍照图片输出格式，Android Q以上
+         */
+        fun setCameraImageFormatForQ(imageFormatQ: String): Builder {
+            DialogInfo.imageFormatQ = imageFormatQ
+            return this
+        }
+
+        /**
+         * 多图模式- 拍照视频输出格式
+         */
+        fun setCameraVideoFormat(videoFormat: String): Builder {
+            DialogInfo.videoFormat = videoFormat
+            return this
+        }
+
+
+        /**
+         * 多图模式-拍照视频输出格式，Android Q以上
+         */
+        fun setCameraVideoFormatForQ(videoFormatQ: String): Builder {
+            DialogInfo.videoFormatQ = videoFormatQ
+            return this
+        }
+
+        /**
+         * 多图模式- 拦截相机事件，实现自定义相机
+         */
+        fun setCameraInterceptListener(listener: OnCameraInterceptListener?): Builder {
+            DialogInfo.listener = listener
             return this
         }
 

@@ -5,9 +5,8 @@ import android.widget.ImageView
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.github.yuan.picture_take.R
+import com.github.yuan.picture_take.utils.ActivityCompatHelper
 import com.github.yuan.picture_take.utils.GlideApp
-import com.luck.picture.lib.engine.ImageEngine
-import com.luck.picture.lib.utils.ActivityCompatHelper
 
 
 /**

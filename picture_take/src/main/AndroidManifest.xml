@@ -1,19 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission
         android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" /><!--add 2022-2-11 Android11-->
+    <queries package="${applicationId}">
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE">
 
+            </action>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE">
+
+            </action>
+        </intent>
+    </queries>
     <application android:requestLegacyExternalStorage="true">
+        <activity
+            android:name=".basic.PictureSelectorSupporterActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Base.Theme.NoActionBar">
 
+        </activity>
+
+        <activity
+            android:name=".basic.PictureSelectorTransparentActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Picture.Theme.Translucent">
+
+        </activity>
         <service
-            android:name="com.luck.picture.lib.service.ForegroundService"
+            android:name=".service.ForegroundService"
             android:enabled="true"
             android:foregroundServiceType="location" />
+        <provider
+            android:name=".basic.PictureFileProvider"
+            android:authorities="${applicationId}.luckProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ps_file_paths" />
+        </provider>
+
     </application>
 </manifest>

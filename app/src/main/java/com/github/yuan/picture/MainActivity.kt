@@ -2,17 +2,15 @@ package com.github.yuan.picture
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.github.yuan.picture_take.PictureChooseDialog
-import com.github.yuan.picture_take.enums.PictureDialogAnimation
+import com.github.yuan.picture_take.config.SelectMimeType
+import com.github.yuan.picture_take.entity.LocalMedia
+import com.github.yuan.picture_take.interfaces.OnResultCallbackListener
 import com.github.yuan.picture_take.utils.PictureUtils
-import com.luck.picture.lib.entity.LocalMedia
-import com.luck.picture.lib.interfaces.OnResultCallbackListener
 import com.yalantis.ucrop.UCrop
 import java.io.File
 import java.util.ArrayList
@@ -26,21 +24,22 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.mBtTake).setOnClickListener {
             PictureChooseDialog.build(this) {
-                setSingleOrMutableMode(false)//上传图片模式是单图/多图 默认是单图
-                setImageMutableForResult(object : OnResultCallbackListener<LocalMedia> {
-                    override fun onResult(result: ArrayList<LocalMedia>) {
-
+                setSingleOrMutableMode(true)//true 多图上传 false单图上传
+                setImageMutableForResult(object : OnResultCallbackListener<LocalMedia> {//多图下-选择相册回显数据
+                    override fun onResult(result: ArrayList<LocalMedia>?) {
                     }
 
                     override fun onCancel() {
                     }
 
                 })
-                setCameraMutableForResult(object :OnResultCallbackListener<LocalMedia>{
-                    override fun onResult(result: ArrayList<LocalMedia>?) {
+                setCameraMutableForResult(object :OnResultCallbackListener<LocalMedia>{//多图下-选择相机回显数据
+                    override fun onResult(result: ArrayList<LocalMedia>) {
+
                     }
 
                     override fun onCancel() {
+
                     }
 
                 })

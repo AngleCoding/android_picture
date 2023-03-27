@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.github.yuan.picture'
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.github.yuan.picture"
         minSdk 24
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 

@@ -8,30 +8,49 @@ import android.view.View.VISIBLE
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.github.yuan.picture_take.R
 import com.github.yuan.picture_take.animator.DialogAnimator
 import com.github.yuan.picture_take.animator.TranslateAlphaAnimator
 import com.github.yuan.picture_take.animator.TranslateAnimator
-import com.github.yuan.picture_take.core.DialogInfo
-import com.github.yuan.picture_take.core.DialogInfo.cameraDialogVisibility
-import com.github.yuan.picture_take.core.DialogInfo.cameraTextColor
-import com.github.yuan.picture_take.core.DialogInfo.cameraTextSize
-import com.github.yuan.picture_take.core.DialogInfo.fileDialogVisibility
-import com.github.yuan.picture_take.core.DialogInfo.fileTextColor
-import com.github.yuan.picture_take.core.DialogInfo.fileTextSize
-import com.github.yuan.picture_take.core.DialogInfo.onImageResultCallbackListener
-import com.github.yuan.picture_take.core.DialogInfo.singleOrMutableMode
+import com.github.yuan.picture_take.basic.PictureSelector
+import com.github.yuan.picture_take.app.DialogInfo
+import com.github.yuan.picture_take.app.DialogInfo.animationMode
+import com.github.yuan.picture_take.app.DialogInfo.cameraChooseMode
+import com.github.yuan.picture_take.app.DialogInfo.cameraDialogVisibility
+import com.github.yuan.picture_take.app.DialogInfo.cameraTextColor
+import com.github.yuan.picture_take.app.DialogInfo.cameraTextSize
+import com.github.yuan.picture_take.app.DialogInfo.fileDialogVisibility
+import com.github.yuan.picture_take.app.DialogInfo.fileTextColor
+import com.github.yuan.picture_take.app.DialogInfo.fileTextSize
+import com.github.yuan.picture_take.app.DialogInfo.galleryChooseMode
+import com.github.yuan.picture_take.app.DialogInfo.imageFormat
+import com.github.yuan.picture_take.app.DialogInfo.imageFormatQ
+import com.github.yuan.picture_take.app.DialogInfo.isAutoPlay
+import com.github.yuan.picture_take.app.DialogInfo.isCameraRotateImage
+import com.github.yuan.picture_take.app.DialogInfo.isDirectReturn
+import com.github.yuan.picture_take.app.DialogInfo.isEmptyReturn
+import com.github.yuan.picture_take.app.DialogInfo.isFastSlidingSelect
+import com.github.yuan.picture_take.app.DialogInfo.isFullScreenModel
+import com.github.yuan.picture_take.app.DialogInfo.isPreviewAudio
+import com.github.yuan.picture_take.app.DialogInfo.isPreviewImage
+import com.github.yuan.picture_take.app.DialogInfo.isWithVideoImage
+import com.github.yuan.picture_take.app.DialogInfo.language
+import com.github.yuan.picture_take.app.DialogInfo.listener
+import com.github.yuan.picture_take.app.DialogInfo.maxSelectNum
+import com.github.yuan.picture_take.app.DialogInfo.maxVideoSelectNum
+import com.github.yuan.picture_take.app.DialogInfo.minSelectNum
+import com.github.yuan.picture_take.app.DialogInfo.minVideoSelectNum
+import com.github.yuan.picture_take.app.DialogInfo.onImageResultCallbackListener
+import com.github.yuan.picture_take.app.DialogInfo.requestedOrientation
+import com.github.yuan.picture_take.app.DialogInfo.selectedList
+import com.github.yuan.picture_take.app.DialogInfo.selectionMode
+import com.github.yuan.picture_take.app.DialogInfo.singleOrMutableMode
+import com.github.yuan.picture_take.app.DialogInfo.videoFormat
+import com.github.yuan.picture_take.app.DialogInfo.videoFormatQ
 import com.github.yuan.picture_take.engine.GlideEngine
 import com.github.yuan.picture_take.enums.PictureDialogAnimation
 import com.github.yuan.picture_take.permissions.PermissionCheck
 import com.github.yuan.picture_take.utils.PictureUtils
-import com.luck.picture.lib.PictureSelectorFragment
-import com.luck.picture.lib.basic.PictureSelector
-import com.luck.picture.lib.config.SelectMimeType
-import com.luck.picture.lib.entity.LocalMedia
-import com.luck.picture.lib.interfaces.OnResultCallbackListener
-import java.util.ArrayList
 
 class PictureDialog(context: Context) : Dialog(context) {
     private var dialogAnimation: DialogAnimator? = null
@@ -82,14 +101,36 @@ class PictureDialog(context: Context) : Dialog(context) {
         //相册
         findViewById<TextView>(R.id.mTvFile).setOnClickListener {
             if (PermissionCheck.checkReadingPermission(mContext)) {
-                if (singleOrMutableMode) {
+                if (!singleOrMutableMode) {
                     PictureUtils.openLocalImage(mContext)
                 } else {
                     PictureSelector.create(mContext)
-                        .openGallery(SelectMimeType.ofImage())
+                        .openGallery(galleryChooseMode)
                         .setImageEngine(GlideEngine.createGlideEngine())
+                        .setMaxSelectNum(maxSelectNum)
+                        .setMinSelectNum(minSelectNum)
+                        .setSelectionMode(selectionMode)
+                        .setSelectedData(selectedList)
+                        .setRecyclerAnimationMode(animationMode)
+                        .setLanguage(language)
+                        .setRequestedOrientation(requestedOrientation)
+                        .setMaxVideoSelectNum(maxVideoSelectNum)
+                        .setMinVideoSelectNum(minVideoSelectNum)
+                        .isPreviewAudio(isPreviewAudio)
+                        .isPreviewImage(isPreviewImage)
+                        .isPreviewFullScreenMode(isFullScreenModel)
+                        .isWithSelectVideoImage(isWithVideoImage)
+                        .isEmptyResultReturn(isEmptyReturn)
+                        .isAutoVideoPlay(isAutoPlay)
+                        .isCameraRotateImage(isCameraRotateImage)
+                        .isFastSlidingSelect(isFastSlidingSelect)
+                        .isDirectReturnSingle(isDirectReturn)
+                        .setCameraImageFormat(imageFormat)
+                        .setCameraImageFormatForQ(imageFormatQ)
+                        .setCameraVideoFormat(videoFormat)
+                        .setCameraVideoFormatForQ(videoFormatQ)
+                        .setCameraInterceptListener(listener)
                         .forResult(onImageResultCallbackListener)
-
                     if (isShowing) {
                         cancel()
                     }
@@ -101,12 +142,19 @@ class PictureDialog(context: Context) : Dialog(context) {
         findViewById<TextView>(R.id.mTvCamera).setOnClickListener {
             if (PermissionCheck.checkCameraPermission(mContext)) {
                 if (PermissionCheck.checkReadingPermission(mContext)) {
-                    if (singleOrMutableMode) {
+                    if (!singleOrMutableMode) {
                         PictureUtils.openCameraImage(mContext)
                     } else {
-                        mContext as AppCompatActivity
                         PictureSelector.create(mContext)
-                            .openCamera(SelectMimeType.ofImage())
+                            .openCamera(cameraChooseMode)
+                            .setSelectedData(selectedList)
+                            .setLanguage(language)
+                            .isCameraRotateImage(isCameraRotateImage)
+                            .setCameraImageFormat(imageFormat)
+                            .setCameraImageFormatForQ(imageFormatQ)
+                            .setCameraVideoFormat(videoFormat)
+                            .setCameraVideoFormatForQ(videoFormatQ)
+                            .setCameraInterceptListener(listener)
                             .forResult(onImageResultCallbackListener)
                     }
                     if (isShowing) {
