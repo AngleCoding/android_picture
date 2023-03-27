@@ -22,8 +22,10 @@
 <img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/camera.gif" width="250" height="300" />
 </div>
 
+
 <div align=start>
 <img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/dtgif.gif" width="250" height="300" />
+<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/dtgif2.gif" width="250" height="300" />
 </div>
 
 <h3>单图功能</h3>
