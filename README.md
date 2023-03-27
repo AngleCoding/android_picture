@@ -1,7 +1,7 @@
 # 相册选择库 [![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)
 
 
-<h3>相册选择和相机拍照，裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等</h3>
+<h3>相册选择库，单图/多图选择功能，单图类似个人中心头像上传，多图类似意见评论多图上传，支持裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等</h3>
 
 
  
@@ -173,7 +173,7 @@
 
 ```java
  
-采用PictureSelector相册库,由于权限库不兼容androidQ以上版本，所以做了权限兼容处理！
+相机采用PictureSelector相册库,由于权限库不兼容androidQ以上版本，所以做了权限兼容处理！
 
 ```
 
