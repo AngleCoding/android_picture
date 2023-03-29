@@ -13,7 +13,7 @@ implementation'com.github.AnglePengCoding:android_picture:Tag'
 
 <h3>版本区别v.1.0.0/v2.0.0</h3>
 
-v.1.0.0 只采用单图，v2.0.0以后扩展功能多图选择，开发者选择对应开发模式即可。
+v.1.0.0 只采用单图，v2.0.0以后增加了多图选择，开发者选择对应开发模式即可。
 
 <h3>添加依赖</h3>
 
