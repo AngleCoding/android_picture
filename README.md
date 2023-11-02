@@ -1,4 +1,4 @@
-# 相册选择库 [![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)
+# Album Selection Library [![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)
 
 <h3>
 Photo album selection library (Kotlin version), single image similar to personal center avatar upload, multi image similar to opinion comments multi image upload, support for cropping, image rotation function, support for animation pop-up, etc</h3>
