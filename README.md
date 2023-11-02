@@ -3,7 +3,7 @@
 <h3>
 Photo album selection library (Kotlin version), single image similar to personal center avatar upload, multi image similar to opinion comments multi image upload, support for cropping, image rotation function, support for animation pop-up, etc</h3>
 
-<h3>添加依赖</h3>
+<h3>Add Dependency</h3>
 
 ```java
 
@@ -11,13 +11,12 @@ implementation'com.github.AnglePengCoding:android_picture:Tag'
 
 ```
 
-<h3>版本区别v.1.0.0/v2.0.0</h3>
+<h3>Version differences v.1.0.0/v2.0.0</h3>
 
-v.1.0.0 只采用单图，v2.0.0以后增加了多图选择，开发者选择对应开发模式即可。
+v.1.0.0 Using only a single image，v2.0.0In the future, multiple image selection has been added, and developers can choose the corresponding development mode。
 
-<h3>添加依赖</h3>
 
-<h3>录屏</h3>
+<h3>Screen recording</h3>
 
 <div align=start>
 <img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/image.gif" width="250" height="300" />
@@ -30,14 +29,14 @@ v.1.0.0 只采用单图，v2.0.0以后增加了多图选择，开发者选择对
 <img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/dtgif2.gif" width="250" height="300" />
 </div>
 
-<h3>单图功能</h3>
+<h3>Single image function</h3>
 
 ```java
 
 
 PictureChooseDialog.build(this){
-        setSingleCameraRequestCode(10086)//设置单图相机RequestCode
-        setSingleImageRequestCode(10096)//设置单图相册RequestCode
+        setSingleCameraRequestCode(10086)//Set up a single image camera RequestCode
+        setSingleImageRequestCode(10096)//Set up a single photo album RequestCode
         show() //必设置
         }
 
@@ -52,17 +51,17 @@ PictureChooseDialog.build(this){
     override fun onActivityResult(requestCode:Int,resultCode:Int,data:Intent?){
             if(resultCode==RESULT_OK){
             when(requestCode){
-            10096->{ //选择相册之后的处理
+            10096->{ //Processing after selecting an album
             data?.data?.let{PictureUtils.initUCrop(this,it)}
             }
 
-            10086->{ //选择相机之后的处理
+            10086->{ //Processing after selecting a camera
             PictureUtils.initUCrop(this,PictureUtils.imageUriFromCamera)
             }
 
-            UCrop.REQUEST_CROP->{ //裁剪之后处理
+            UCrop.REQUEST_CROP->{ //Processing after cropping
             val resultUri=UCrop.getOutput(data!!)
-            //获取的File文件
+            
             val file=
             File(PictureUtils.getImageAbsolutePath(this,resultUri).toString())
             findViewById<ImageView>(R.id.mIv).post{
@@ -77,7 +76,7 @@ PictureChooseDialog.build(this){
 
 ```
 
-<h3>多图功能</h3>
+<h3>Multi image function</h3>
 
 ```java
 
@@ -89,13 +88,13 @@ adapter=GridImageAdapter(mContext)
 
         override fun onAddPicClick(position:Int){
         PictureChooseDialog.build(this){
-        setSingleOrMutableMode(true)//开启多图模式
-        setMaxSelectNum(2)//最大数量
-        openGalleryChooseMode(SelectMimeType.TYPE_ALL)//多图模式-相册
-        openCameraChooseMode(SelectMimeType.TYPE_ALL)//多图模式-相机
-        setSelectedData(adapter.data)// 相册已选数据
+        setSingleOrMutableMode(true)//Enable multi image mode
+        setMaxSelectNum(2)//maximum number
+        openGalleryChooseMode(SelectMimeType.TYPE_ALL)//Multi Image Mode - Album
+        openCameraChooseMode(SelectMimeType.TYPE_ALL)//Multi Image Mode - Camera
+        setSelectedData(adapter.data)// Album Selected Data
         setImageMutableForResult(object:OnResultCallbackListener<LocalMedia> {
-        //多图模式-选择相册回显数据
+        //Multi Image Mode - Select Album Echo Data
         override fun onResult(result:ArrayList<LocalMedia>){
         adapter.setList(result)
         }
@@ -105,7 +104,7 @@ adapter=GridImageAdapter(mContext)
 
         })
         setCameraMutableForResult(object:OnResultCallbackListener<LocalMedia> {
-        //多图模式-选择相机回显数据
+        //Multi image mode - select camera echo data
         override fun onResult(result:ArrayList<LocalMedia>){
         adapter.setList(result)
         }
@@ -122,76 +121,68 @@ adapter=GridImageAdapter(mContext)
 
 ```
 
-<h3>裁剪功能</h3>
+<h3>Cropping function</h3>
 
 ```java
 
-setUCropToolbarColor(R.color.teal_200)//设置裁剪ToolbarColor   可不设置
-        setUCropStatusBarColor(R.color.teal_200)//设置裁剪状态栏颜色   可不设置
-        setMaxScaleMultiplier(2f)//设置裁剪最大缩放比例  可不设置
-        setImageToCropBoundsAnimDuration(1000)//设置图片在切换比例时的动画  可不设置
-        setShowCropFrame(true)//设置是否展示矩形裁剪框  可不设置
-        setCropGridStrokeWidth(R.color.teal_200)//设置裁剪框横竖线的颜色 可不设置
-        setCropGridColumnCount(1)//设置裁剪竖线的数量 可不设置
-        setCropGridRowCount(2)//设置裁剪横线的数量 可不设置
+setUCropToolbarColor(R.color.teal_200)//Setting the cropping ToolbarColor is optional
+        setUCropStatusBarColor(R.color.teal_200)//Setting the color of the cropping status bar is optional
+        setMaxScaleMultiplier(2f)//Set the maximum zoom ratio for cropping
+        setImageToCropBoundsAnimDuration(1000)//Animate images when switching scales 
+        setShowCropFrame(true)//Set whether to display rectangular clipping boxes
+        setCropGridStrokeWidth(R.color.teal_200)//Set the color of the crop box's horizontal and vertical lines
+        setCropGridColumnCount(1)//Set the number of crop vertical lines
+        setCropGridRowCount(2)//Set the number of crop lines
 
 ```
 
-<h3>弹窗样式以及其他辅助功能</h3>
+<h3>Pop up style and other auxiliary functions</h3>
 
 ```java
 
-setFileTextSize(18f)//设置dialog“相册”按钮字体大小  根据业务需求
-        setFileTextColor(Color.parseColor("#FF3700B3"))//设置dialog“相册”按钮字体颜色  根据业务需求
-        setCameraTextSize(15f)//设置dialog“相机”按钮字体大小  根据业务需求
-        setCameraTextColor(Color.parseColor("#ffcc0000"))//设置dialog“相机”按钮字体颜色  根据业务需求
-        setAnimationDuration(2000)//设置dialog动画时长  根据业务需求
-        pictureDialogAnimation(PictureDialogAnimation.TranslateFromBottom)//设置dialog弹窗动画  根据业务需求
-        setCameraDialogVisibility(true)//设置dialog 相机按钮隐藏  根据业务需求
-        setFileDialogVisibility(true)//设置dialog 相册按钮隐藏  根据业务需求
+setFileTextSize(18f)//Set the font size of the dialog "album" button according to business needs
+        setFileTextColor(Color.parseColor("#FF3700B3"))//Set the font color of the dialog "album" button according to business needs
+        setCameraTextSize(15f)//Set the font size of the dialog "camera" button according to business needs
+        setCameraTextColor(Color.parseColor("#ffcc0000"))//Set the font color of the dialog "camera" button according to business needs
+        setAnimationDuration(2000)//Set the duration of the dialog animation according to business needs
+        pictureDialogAnimation(PictureDialogAnimation.TranslateFromBottom)//Set dialog pop-up animation according to business needs
+        setCameraDialogVisibility(true)//Set dialog camera buttons to hide according to business needs
+        setFileDialogVisibility(true)//Set the dialog album button to hide according to business needs
 
-<!--其他辅助功能-->
-        setRecyclerAnimationMode()//相册列表动画效果
-        setLanguage()//设置相册语言
-        setRequestedOrientation()//设置屏幕旋转方向
-        setMaxVideoSelectNum()//视频最大选择数量
-        setMinVideoSelectNum()//视频最小选择数量
-        isPreviewAudio()//是否支持音频预览
-        isPreviewImage()//是否支持预览图片
-        isPreviewFullScreenMode()//预览点击全屏效果
-        isWithSelectVideoImage()//是否支持视频图片同选
-        isEmptyResultReturn()//支持未选择返回
-        isCameraRotateImage()//拍照是否纠正旋转图片
-        isAutoVideoPlay()//预览视频是否自动播放
-        isFastSlidingSelect()//快速滑动选择
-        isDirectReturnSingle()//单选时是否立即返回
-        setCameraImageFormat()//拍照图片输出格式
-        setCameraImageFormatForQ()//拍照图片输出格式，Android Q以上
-        setCameraVideoFormat()//拍照视频输出格式
-        setCameraInterceptListener()//拦截相机事件，实现自定义相机
+<!--Other auxiliary functions-->
+        setRecyclerAnimationMode()//Album List Animation Effects
+        setLanguage()//Set Album Language
+        setRequestedOrientation()//Set screen rotation direction
+        setMaxVideoSelectNum()//Maximum number of video selections
+        setMinVideoSelectNum()//Minimum number of video selections
+        isPreviewAudio()//Does it support audio preview
+        isPreviewImage()//Does it support previewing images
+        isPreviewFullScreenMode()//Preview click full screen effect
+        isWithSelectVideoImage()//Does it support video and image selection
+        isEmptyResultReturn()//Support unselected return
+        isCameraRotateImage()//Does the photo correct the rotation of the image
+        isAutoVideoPlay()//Whether the preview video will automatically play
+        isFastSlidingSelect()//Quick slide selection
+        isDirectReturnSingle()//Do you want to return immediately when selecting a single option
+        setCameraImageFormat()//Photo output format
+        setCameraImageFormatForQ()//Photo output format, Android Q or above
+        setCameraVideoFormat()//Photo Video Output Format
+        setCameraInterceptListener()//Intercept camera events and implement custom cameras
 
 
 ```
 
-<h3>特意描述</h3>
+<h3>Intentional description</h3>
 
 ```java
 
-相机采用PictureSelector相册库,由于权限库不兼容androidQ以上版本，所以做了权限兼容处理！
+The camera uses the PictureSelector album library, but due to the incompatibility of the permission library with Android Q and above versions, permission compatibility has been processed!
 
 ```
-
-<h3>有问题，主页联系邮箱</h3>
 
 
 ***
-<h3>欢迎帅哥美女打赏，在下感激不尽！！！</h3>
 
-<div align=start>
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/wx.jpg" width="250" height="300" />
-
-<img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/zfb.jpg" width="250" height="300" />
-</div>
 
 ```java
 
