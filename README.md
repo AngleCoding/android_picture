@@ -1,7 +1,7 @@
 # 相册选择库 [![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)
 
 <h3>
-相册选择库，单图/多图选择功能，单图类似个人中心头像上传，多图类似意见评论多图上传，支持裁剪，图片旋转功能，支持动画弹窗，裁剪设置例如状态栏颜色，缩放比例，裁剪框横竖颜色，横竖线数量设置等</h3>
+Photo album selection library (Kotlin version), single image similar to personal center avatar upload, multi image similar to opinion comments multi image upload, support for cropping, image rotation function, support for animation pop-up, etc</h3>
 
 <h3>添加依赖</h3>
 
