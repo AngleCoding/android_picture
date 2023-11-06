@@ -1,6 +1,6 @@
 # Album Selection Library [![](https://jitpack.io/v/AnglePengCoding/android_picture.svg)](https://jitpack.io/#AnglePengCoding/android_picture)
 
-[英文](https://github.com/AnglePengCoding/android_picture/blob/main/README)
+[英文](https://github.com/AngleCoding/android_picture/blob/main/README.md)
 
 <div align="center">
   <img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/android.png">
