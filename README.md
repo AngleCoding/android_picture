@@ -3,6 +3,13 @@
 <h3>
 Photo album selection library (Kotlin version), single image similar to personal center avatar upload, multi image similar to opinion comments multi image upload, support for cropping, image rotation function, support for animation pop-up, etc</h3>
 
+
+
+<div align="center">
+  <img src="https://github.com/AnglePengCoding/android_picture/blob/main/GIF/android.png">
+</div>
+
+
 <h3>Add Dependency</h3>
 
 ```java

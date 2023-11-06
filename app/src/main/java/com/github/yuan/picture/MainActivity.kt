@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.github.yuan.picture_take.PictureChooseDialog
-import com.github.yuan.picture_take.config.SelectMimeType
 import com.github.yuan.picture_take.entity.LocalMedia
 import com.github.yuan.picture_take.interfaces.OnResultCallbackListener
 import com.github.yuan.picture_take.utils.PictureUtils
