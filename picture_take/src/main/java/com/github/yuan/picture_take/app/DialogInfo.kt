@@ -5,7 +5,6 @@ import android.graphics.Color
 import com.github.yuan.picture_take.R
 import com.github.yuan.picture_take.animators.AnimationType.SLIDE_IN_BOTTOM_ANIMATION
 import com.github.yuan.picture_take.config.PictureMimeType
-import com.github.yuan.picture_take.config.PictureSelectionConfig
 import com.github.yuan.picture_take.config.SelectMimeType
 import com.github.yuan.picture_take.config.SelectModeConfig
 import com.github.yuan.picture_take.entity.LocalMedia
@@ -22,6 +21,7 @@ object DialogInfo {
     var maxScaleMultiplier: Float = 5f //最大缩放比例
     var uCropToolbarColor: Int = R.color.u_crop_toolbar_color//裁剪ToolbarColor
     var uCropStatusBarColor: Int = R.color.u_crop_status_bar_color//裁剪状态栏颜色
+    var mResource: Int = R.drawable.icon_take//adapter占位图
     var duration: Int = 300 //动画时长
     var dialogAnimation: PictureDialogAnimation = PictureDialogAnimation.TranslateFromBottom
     var cropFrame: Boolean = true
@@ -64,6 +64,7 @@ object DialogInfo {
     var videoFormat: String = PictureMimeType.MP4
     var videoFormatQ: String = PictureMimeType.MIME_TYPE_VIDEO
     var listener: OnCameraInterceptListener? = null
+    var outPutCameraDir: String = ""
 
 
 }

@@ -2,6 +2,7 @@ package com.github.yuan.picture_take
 
 import android.content.Context
 import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import com.github.yuan.picture_take.app.DialogInfo
 import com.github.yuan.picture_take.dialog.PictureDialog
 import com.github.yuan.picture_take.entity.LocalMedia
@@ -36,6 +37,15 @@ class PictureChooseDialog {
          */
         fun setFileTextColor(@ColorInt fileTextColor: Int): Builder {
             DialogInfo.fileTextColor = fileTextColor
+            return this
+        }
+
+        /**
+         * 设置adapter展位图
+         */
+
+        fun setAdapterOccupyBitmap(@DrawableRes resId: Int) : Builder {
+            DialogInfo.mResource = resId
             return this
         }
 
@@ -405,6 +415,14 @@ class PictureChooseDialog {
             DialogInfo.listener = listener
             return this
         }
+
+        /**
+         * 设置图片输出地址
+         */
+        fun  setOutputCameraDir(outPutCameraDir:String){
+            DialogInfo.outPutCameraDir = outPutCameraDir
+        }
+
 
         /**
          * 显示弹窗
