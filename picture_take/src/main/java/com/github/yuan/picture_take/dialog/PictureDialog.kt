@@ -129,6 +129,7 @@ class PictureDialog(context: Context) : Dialog(context) {
                         .setCameraImageFormatForQ(imageFormatQ)
                         .setCameraVideoFormat(videoFormat)
                         .setCameraVideoFormatForQ(videoFormatQ)
+                        .setOutputCameraDir(DialogInfo.outPutCameraDir)
                         .setCameraInterceptListener(listener)
                         .forResult(onImageResultCallbackListener)
                     if (isShowing) {
@@ -154,6 +155,7 @@ class PictureDialog(context: Context) : Dialog(context) {
                             .setCameraImageFormatForQ(imageFormatQ)
                             .setCameraVideoFormat(videoFormat)
                             .setCameraVideoFormatForQ(videoFormatQ)
+                            .setOutputCameraDir(DialogInfo.outPutCameraDir)
                             .setCameraInterceptListener(listener)
                             .forResult(onImageResultCallbackListener)
                     }
